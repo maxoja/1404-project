@@ -46,6 +46,9 @@
             color: darkgrey;
         }
 
+        #skip-button {
+            cursor: pointer;
+        }
 
         .stroke-txt {
             text-shadow:
@@ -74,6 +77,8 @@
             left: -200px;
         }
 
+        .hamster-img {}
+
         .button {
             background: #2B2D2F;
             height: 64px;
@@ -96,7 +101,7 @@
             font-weight: 200;
             /* 200 */
             color: whitesmoke;
-            opacity: 0.5;
+            opacity: 0.8;
             /* 1 */
             top: 5px;
         }
@@ -135,6 +140,26 @@
             opacity: 0;
         }
 
+        #ads-bg-content {
+            position: fixed;
+            display: flex;
+            height: 100vh;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            left: 0;
+            top: 0;
+            background-color: rgba(194, 194, 194, 0.2);
+            flex-wrap: wrap;
+        }
+
+        #ads-content {
+            margin-top: 80px;
+            z-index: 99;
+            margin: auto;
+            text-align: center;
+        }
+
         .content-item {
             margin-bottom: 10px;
         }
@@ -156,7 +181,7 @@
         }
 
         .hide {
-            display: none;
+            display: none !important;
         }
 
         .show {
@@ -209,6 +234,12 @@
 </head>
 
 <body>
+    <div id="ads-bg-content" class="hide"></div>
+    <div id="ads-content" class="hide">
+        <h1 class="default-button-text button-text" id="skip-button">Skip</h1>
+        <img class="hamster-img" height="640px" src="pics/ham_ads.png"></img>
+    </div>
+
     <div id="middle-area">
         <div id="before-click-content">
             <h1 class="big-faint-title stroke-txt">There is a present 🎁 for you, </h1>
@@ -221,8 +252,8 @@
                 <h1 class="button-text button-hover-text">Just kidding, just click me</h1>
             </div>
         </div>
-        <div id="after-click-content" class="hide">
 
+        <div id="after-click-content" class="hide">
             <h1 class="big-faint-title stroke-txt"> 🎁 </h1>
 
             <div id="reveal-line" class="faint-title date-items">Revealing on
@@ -323,7 +354,7 @@
         .add({
             targets: [".button-text"],
             duration: 10000,
-            opacity: "1",
+            opacity: 1,
             color: "white"
         })
     secondTimeLine
@@ -356,6 +387,7 @@
     })
 
 
+
     const links = document.getElementsByTagName("a")
     const cachedLinks = {}
     for (let i = 0; i < links.length; i += 1) {
@@ -365,9 +397,16 @@
         links.item(i).style.cursor = "auto"
     }
     document.getElementById("the-button").addEventListener("click", () => {
+        document.getElementById('before-click-content').className = "hide";
+        document.getElementById('ads-bg-content').className = "show";
+        document.getElementById('ads-content').className = "show";
+    })
+
+    document.getElementById("skip-button").addEventListener("click", () => {
         boosted = true
         timeTravel.play()
-        document.getElementById('before-click-content').className = "hide";
+        document.getElementById('ads-bg-content').className = "hide";
+        document.getElementById('ads-content').className = "hide";
         document.getElementById('after-click-content').className = "show";
     })
 </script>
