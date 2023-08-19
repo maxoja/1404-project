@@ -200,7 +200,9 @@
             color: white !important;
         }
 
-        .sample-link {}
+        .sample-link {
+            text-decoration: underline;
+        }
 
 
         /*.stagger-visualizer {*/
@@ -282,17 +284,25 @@
             <div id="content-area">
                 <h2 class="faint-title-small">However, you can <b>BOOST</b> 😉</h2>
                 <hr />
-                <h1 class="faint-title content-item sample-link" id="download-link">https://hitnmix.com/downloads</h1>
+                <a href="https://hitnmix.com/downloads">
+                    <h1 class="faint-title content-item sample-link" id="download-link">Download here</h1>
+                </a>
+                <h1 class="faint-title-small">Activation code below 👇</h1>
+
                 <h1 class="faint-title content-item" id="activation-code">XXXX-XXXX-XXXX-XXXX</h1>
+                <br />
+
+                <h1 class="faint-title-small">Sneak peek at some samples 🫣</h1>
+
                 <a href="files/yoasobi%20-%20eiei.mp3">
-                    <h1 class="faint-title content-item sample-link">Sample 1</h1>
+                    <h1 class="faint-title-small content-item sample-link">Sample 1</h1>
                 </a>
                 <a href="files/ragdoll%20-%20boosto%20desu.mp3">
-                    <h1 class="faint-title content-item sample-link">Sample 2</h1>
+                    <h1 class="faint-title-small content-item sample-link">Sample 2</h1>
                 </a>
                 <a href="files/microwave%20-%20guitar.mp3">
-                    <h1 class="faint-title content-item sample-link">Sample 3</h1>
-                </a>
+                    <h1 class="faint-title-small content-item sample-link">Sample 3</h1>
+                </a>-
                 <br>
             </div>
         </div>
@@ -353,7 +363,7 @@
         .add({
             targets: ["#content-area"],
             opacity: 1,
-            height: "280px"
+            height: "360px"
         })
 
     firstTimeline
